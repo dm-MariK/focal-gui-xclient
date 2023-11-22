@@ -1,0 +1,29 @@
+# GUI Apps in Docker container — quick and dirty solution. #
+## Введение <a id='intro'/> ##
+
+## Предварительные сведения <a id='theory'/> ##
+### Немного «теории» о том, как работают «иксы» <a id='x-theory'/> ###
+### О системе безопасности / авторизации пользователей на X-сервере <a id='x-security-basics'/> ###
+
+## «Практическая часть» <a id='prac'> ##
+### Создание изолированной Docker-сети <a id='internal-docker-network'/> ###
+### Включение поддержки `/etc/rc.local` в systemd <a id='rc-local-systemd'/> ###
+### Настройка файервола `iptables` <a id='iptables'/> ###
+### Включение поддержки TCP/IP «хозяйским» xorg-сервером <a id='xorg-tcp'/> ###
+### Подготовка Docker-образа: Dockerfile <a id='dockerfile'/> ###
+### Создание Docker-контейнера и его первый запуск <a id='docker-create'/> ###
+### Работа с контейнером ### <p><a name="using-container"></a></p>
+### Установка Matlab ### <p><a name="matlab"></a></p>
+
+## P.S. или Дополнения ## <p><a name="anneces"></a></p>
+annex -- anneces
+### Дополнение 1: Xwayland и `socat` ### <p><a name="annex-xwayland-socat"></a></p>
+### Дополнение 2: Метод без использования TCP/IP-сети ### <p><a name="annex-unix-socket-to-docker-volume"></a></p>
+### Дополнение 3: x11docker ### <p><a name="annex-x11docker"></a></p>
+### Дополнение 4: запуск Matlab через systemd-run ### <p><a name="annex-systemd-run-matlab"></a></p>
+
+## P.P.S. xhost и MIT-SHM ## <p><a name="pps-xhost-MIT-SHM"></a></p>
+
+## ССЫЛКИ ## <p><a name="refs"></a></p>
+[Ссылки](#refs)
+
