@@ -1,0 +1,34 @@
+Хабы:
+-----
+DIY или Сделай сам
+Системное администрирование
+Настройка Linux
+Виртуализация
+Matlab
+============================
+
+Теги:
+-----
+изоляция приложений от сети Интернет
+контейнерная виртуализация
+docker
+linux
+desktop environment
+xserver
+xorg
+xhost
+GUI-приложения
+rc.local
+iptables
+Matlab
+X over TCP/IP
+XAUTHORITY
+MIT-SHM
+systemd-run
+it-инфраструктура
+что если...
+
+============================
+Запускаем Matlab® внутри Docker-контейнера с поддержкой GUI в ОС GNU/Linux.
+Опыт запуска GUI-приложений (X-клиентов) на примере Matlab® внутри Docker-контейнера в ОС GNU/Linux.
+Old header: GUI Apps in Docker container — quick and dirty solution.
