@@ -6,29 +6,30 @@ DIY или Сделай сам
 Виртуализация
 Matlab
 ============================
-
 Теги:
 -----
-изоляция приложений от сети Интернет
-контейнерная виртуализация
+изоляция приложений
+matlab
 docker
 linux
-desktop environment
-xserver
-xorg
-xhost
 GUI-приложения
-rc.local
-iptables
-Matlab
+xserver
 X over TCP/IP
-XAUTHORITY
+/etc/rc.local
+iptables
 MIT-SHM
-systemd-run
-it-инфраструктура
-что если...
 
 ============================
+Заголовок:
+----------
 Запускаем Matlab® внутри Docker-контейнера с поддержкой GUI в ОС GNU/Linux.
 Опыт запуска GUI-приложений (X-клиентов) на примере Matlab® внутри Docker-контейнера в ОС GNU/Linux.
 Old header: GUI Apps in Docker container — quick and dirty solution.
+============================
+Картинка: matlab_in_docker.png
+MD: ![](https://habrastorage.org/webt/t6/ev/-f/t6ev-fyarlgsaot1-oexwqqfsly.png)
+HTML: <img src="https://habrastorage.org/webt/t6/ev/-f/t6ev-fyarlgsaot1-oexwqqfsly.png" />
+Direct: https://habrastorage.org/webt/t6/ev/-f/t6ev-fyarlgsaot1-oexwqqfsly.png
+============================
+Сама статья на хабре:
+https://habr.com/ru/sandbox/205634/
