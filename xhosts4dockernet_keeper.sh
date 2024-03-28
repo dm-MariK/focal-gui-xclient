@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 # xhosts4dockernet_keeper.sh [DockerNetworkName | INET:]
 
 # docker-network to be inspected, if no input passed:
