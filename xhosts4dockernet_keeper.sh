@@ -1,13 +1,13 @@
 #!/bin/bash
 # xhosts4dockernet_keeper.sh [DockerNetworkName | INET:]
-
+# ------------------------------------------------------------------
+# Supported values of a net mask size are: 8, 16 and 24 [bits] only.
+# The "default" net mask size - if unsupported value has been met - 
+# is 24 bits. Any networks having unsupported net mask size will be 
+# treated like those having 24 bits masks.
+# ------------------------------------------------------------------
 # docker-network to be inspected, if no input passed:
 NetworkName="dcr_itl_25"
-# ---------------------------------------------------
-# "default" net mask size, if unsupported value was met;
-# supported values are: 8, 16 and 24 [bits] only.
-defNetMaskSz=24
-# ---------------------------------------------------
 
 if [[ $1 ]] ; then
   NetworkName="$1"
@@ -31,18 +31,7 @@ dn=$(docker network inspect -f '{{json .IPAM.Config}}' ${NetworkName} | sed 's/\
 netMaskSz=${dn#*/}
 netAddr=${dn%/*}
 
-# Check whether the net mask size is supported. If not --
-# fall back to its "default" value and print Warning message.
-if [[ -z "$(echo '8 16 24' | grep ${netMaskSz})" ]] ; then
-  echo "Warning!"
-  echo "Unsupported net mask size: ${netMaskSz} bits"
-  echo "Supported values are: 8, 16 and 24 bits only."
-  echo "Will treat your xhost's ACL as if the mask size was ${defNetMaskSz} bits."
-  echo "This could lead to some unexpected results!"
-  netMaskSz=${defNetMaskSz}
-fi
-
-# Set up the IP address filter from the address and mask size. 
+# Set up the IP address filter using the address and the net mask size. 
 case "${netMaskSz}" in
   8)
     recFltr=INET:$(echo ${netAddr} | awk 'BEGIN { FS = "."; OFS="." } ; { print $1 }').
@@ -51,6 +40,16 @@ case "${netMaskSz}" in
     recFltr=INET:$(echo ${netAddr} | awk 'BEGIN { FS = "."; OFS="." } ; { print $1,$2 }').
     ;;
   24)
+    recFltr=INET:$(echo ${netAddr} | awk 'BEGIN { FS = "."; OFS="." } ; { print $1,$2,$3 }').
+    ;;
+  *)
+    # Unsupported net mask size has been met. Treat it as "default", i.e. equal to 24
+    # (Not forget to display a Warning message.)
+    echo "Warning!"
+    echo "Unsupported net mask size: ${netMaskSz} bits"
+    echo "Supported values are: 8, 16 and 24 bits only."
+    echo "Will treat your xhost's ACL as if the mask size was 24 bits."
+    echo "This could lead to some unexpected results!"
     recFltr=INET:$(echo ${netAddr} | awk 'BEGIN { FS = "."; OFS="." } ; { print $1,$2,$3 }').
     ;;
 esac
